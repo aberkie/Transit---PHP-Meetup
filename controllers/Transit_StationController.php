@@ -1,4 +1,12 @@
 <?php
+
+/* 
+Transit Plugin
+Station Controller
+Author: Aaron Berkowitz, @asberk
+*/
+
+
 namespace Craft;
 
 class Transit_StationController extends BaseController
