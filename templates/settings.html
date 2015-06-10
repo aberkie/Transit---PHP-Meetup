@@ -1,0 +1,13 @@
+{# Transit Settings #}
+
+{% from "_includes/forms" import textfield %}
+
+<h1>Settings</h1>
+
+{{textfield({
+	id: 'apiToken',
+	name: 'apiToken',
+	value: settings['apiToken'],
+	label: 'WMATA API Token',
+	size: 50
+})}}

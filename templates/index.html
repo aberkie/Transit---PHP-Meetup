@@ -1,0 +1,58 @@
+{# Control Panel Template #}
+
+{% extends '_layouts/cp' %}
+
+{% set tabs = {
+    index:     { label: "Stations"|t, url: url('transit/') },
+    edit:     { label: "Edit"|t, url: url('transit/edit') },
+} %}
+
+{% set title = 'Transit Stations' %}
+
+{% set selectedTab = 'index' %}
+
+{% set content %}
+	
+	{% set stations = craft.transit.stations() %}
+
+    {% if stations %}
+        <h1>Your Stations</h1>
+        <div class="elements">
+	        <div class="tableview">
+		        <table class="data">
+		            <thead>
+		                <tr><th scope="col">Name</th>
+		                <th scope="col">Code</th>
+		                <th scope="col">Create Date</th>
+		                <th scope="col">Last Updated</th>
+		                <th scope="col">Actions</th>
+		            </tr></thead>
+		            <tbody>
+		                {% for station in stations %}
+		                    <tr>
+		                        <td><a href="{{ url('transit/edit/'~station.id) }}">{{ station.name }}</a></td>
+		                        <td>{{ station.code }}</td>
+		                        <td>{{ station.dateCreated|date('M. d, Y') }}</td>
+		                        <td>{{ station.dateUpdated|date('M. d, Y') }}</td>
+		                        <td><a href="{{ url('transit/edit/'~station.id) }}" class="action settings icon" title="Settings"></a> 
+		                        <a class="action delete icon" data-id="{{ station.id }}"  title="Remove"></a></td>
+		                    </tr>
+		                {% endfor %}
+		            </tbody>
+		        </table>
+	        </div>
+	         <p><a href="{{ url('transit/edit/') }}"><button class="btn submit">Create Station</button></a></p>
+        </div>
+    {% else %}
+        <h1>Oops you don't have any stations yet</h1>
+        <p>Why don't you create one?</p>
+        <a href="{{ url('transit/edit/') }}"><button class="btn submit">Create Station</button></a>
+    {% endif %}
+
+<style>
+    table {width: 100%}
+</style>
+
+{% endset %}
+
+{% includeJsResource "transit/transit.js" %}

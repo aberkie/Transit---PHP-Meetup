@@ -1,0 +1,56 @@
+{# Control Panel Edit Template #}
+
+{% import '_includes/forms' as forms %}
+{% extends '_layouts/cp' %}
+{% set title = "Transit Station - Edit" %}
+{% set tabs = {
+    index:     { label: "Stations"|t, url: url('transit/') },
+    edit:     { label: "Edit"|t, url: url('transit/edit') },
+} %}
+{% set selectedTab = 'edit' %}
+
+{% if stationId is not defined %}{% set stationId = null %}{% endif %}
+
+{% if station is not defined %}
+    {% if stationId %}
+        {% set station = craft.transit.getStation(stationId) %}
+        {% if not station %}{% exit 404 %}{% endif %}
+    {% else %}
+        {% set station = null %}
+    {% endif %}
+{% endif %}
+
+{% set content %}
+
+    <h1>Build a new station</h1>
+
+    <form method="post" action="">
+        <input type="hidden" name="action" value="transit/station/save" />
+        <input type="hidden" name="redirect" value="{{ url('transit') }}" />
+        <input type="hidden" name="stationId" value="{{ stationId }}" />
+        
+        {{ forms.textField({
+            label: 'Station Name'|t,
+            required: true,
+            name: 'name',
+            id: 'name',
+            value: station ? station.name : null,
+            instructions: 'What is the name of the station?'
+        }) }}
+
+        {{ forms.textField({
+            label: 'Station Code'|t,
+            required: false,
+            id: 'code',
+            name: 'code',
+            value: station ? station.code : null,
+            instructions: 'WMATA Station Code'
+        }) }}
+
+        <div class="buttons">
+            <input type="submit" class="btn submit" value="{{ 'Save'|t }}">
+        </div>
+
+        </form>
+{% endset %}
+
