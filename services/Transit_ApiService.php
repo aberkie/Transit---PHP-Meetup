@@ -1,4 +1,10 @@
 <?php
+
+/* 
+Transit Plugin
+API Service
+Author: Aaron Berkowitz, @asberk
+*/
 	
 namespace Craft;
 

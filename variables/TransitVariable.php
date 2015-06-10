@@ -1,4 +1,11 @@
 <?php
+
+/* 
+Transit Plugin
+Variables
+Author: Aaron Berkowitz, @asberk
+*/
+
 namespace Craft;
 
 class TransitVariable

@@ -1,5 +1,11 @@
 <?php
-	
+
+/* 
+Transit Plugin
+Station Field Type
+Author: Aaron Berkowitz, @asberk
+*/	
+
 namespace Craft;
 class Transit_StationsFieldType extends BaseFieldType
 {

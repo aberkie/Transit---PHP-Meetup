@@ -1,5 +1,13 @@
 <?php 
+
+/* 
+Transit Plugin
+Station Record
+Author: Aaron Berkowitz, @asberk
+*/
+
 namespace Craft;
+
 
 class Transit_StationRecord extends BaseRecord
 {

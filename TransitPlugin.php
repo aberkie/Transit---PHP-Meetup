@@ -1,5 +1,11 @@
 <?php
 	
+/* 
+Transit Plugin
+Main Plugin Class
+Author: Aaron Berkowitz, @asberk
+*/
+
 namespace Craft;
 
 class TransitPlugin extends BasePlugin

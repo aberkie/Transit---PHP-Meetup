@@ -1,5 +1,11 @@
 <?php
 
+/* 
+Transit Plugin
+Station Model
+Author: Aaron Berkowitz, @asberk
+*/
+
 namespace Craft;
 
 class Transit_StationModel extends BaseModel

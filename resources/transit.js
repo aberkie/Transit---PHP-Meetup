@@ -1,3 +1,9 @@
+/*
+Transit Plugin
+Station Script for Deleting
+Author: Aaron Berkowitz, @asberk
+*/
+
 $( document ).ready(function() {
      
     // delete counter

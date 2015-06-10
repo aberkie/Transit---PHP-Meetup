@@ -1,5 +1,11 @@
 <?php
 
+/* 
+Transit Plugin
+Station Service
+Author: Aaron Berkowitz, @asberk
+*/
+
 namespace Craft;
 
 class Transit_StationService extends BaseApplicationComponent
