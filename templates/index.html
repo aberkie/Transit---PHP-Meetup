@@ -50,8 +50,7 @@
 	         <p><a href="{{ url('transit/edit/') }}"><button class="btn submit">Create Station</button></a></p>
         </div>
     {% else %}
-        <h1>Oops you don't have any stations yet</h1>
-        <p>Why don't you create one?</p>
+        <h1>No stations found!</h1>
         <a href="{{ url('transit/edit/') }}"><button class="btn submit">Create Station</button></a>
     {% endif %}
 
